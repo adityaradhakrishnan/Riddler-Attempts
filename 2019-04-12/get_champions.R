@@ -64,6 +64,6 @@ win_plot  = ggplot(win_df, aes(x = Degree, y = Win.Pct)) + geom_point(color = "#
             ggtitle(paste0('Pearson Rho = ', round(cor.test(win_df$Degree, win_df$Win.Pct)$estimate, 3)))
 
 ggsave(plot = ggarrange(ggarrange(num_plot, frac_plot, nrow = 2), win_plot, ncol = 2),
-       filename = gsub('.tsv', '.tiff', args[1]), device = 'tiff', width = 250, height = 150, units = 'mm', dpi = 150, compression = 'lzw')
+       filename = gsub('.tsv', '.png', args[1]), device = 'png', width = 250, height = 150, units = 'mm', dpi = 150)
 
 write_tsv(x = win_df, path = gsub('.tsv', '_degree_pct.tsv', args[1]))
